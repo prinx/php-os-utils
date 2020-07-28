@@ -1,0 +1,32 @@
+{
+    "name": "prinx/os-utils",
+    "description": "Operating system utilities class",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Prince Dorcis",
+            "email": "princedorcis@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "prinx/string-utils": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "9.2.5"
+    },
+    "config": {
+        "optimize-autoloader": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Os\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    }
+}
