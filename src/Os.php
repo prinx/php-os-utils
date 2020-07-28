@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the PHPUtils package.
+ * This file is part of the PHP OS Utils package.
  *
  * (c) Prince Dorcis <princedorcis@gmail.com>
  *
@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Prinx\Utils;
+namespace Prinx;
 
 /**
  * Os Utilities class
