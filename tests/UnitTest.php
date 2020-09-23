@@ -11,6 +11,5 @@ class EnvTest extends TestCase
 {
     public function testExample()
     {
-        
     }
 }
