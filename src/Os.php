@@ -18,7 +18,6 @@ namespace Prinx;
  */
 class Os
 {
-
     /**
      * Platforms
      *
@@ -40,7 +39,7 @@ class Os
      * Check if the OS name passed is the same as the OS of the machine on
      * which the script is running.
      *
-     * @param string $name
+     * @param  string    $name
      * @return boolean
      */
     public static function is($name)
@@ -62,41 +61,39 @@ class Os
      * Return the propoer slash according to the OS.
      * Backslash '\\' for Windows, normal slash '/' for the other OS
      *
-     * @param string $platform=guess|windows|linux|mac|unix Get the path delimiter of a specific platform
      * If platform is guess, returns the appropriate slash according to the OS running the script
      * Win and windows will produce the same result
      * Linux, Mac, unix will produce the same result.
-     * @return string
+     * @param  string     $platform=guess|windows|linux|mac|unix Get the path delimiter of a specific platform
      * @throws \Exception If platform is unknown
+     * @return string
      */
-    public static function slash($platform = "guess")
+    public static function slash($platform = 'guess')
     {
         $platform = strtolower($platform);
 
         if (!in_array($platform, self::$platforms, true)) {
-            throw new \Exception('Platform must be one of "' . implode(', ', self::$platforms) . '"');
+            throw new \Exception('Platform must be one of "'.implode(', ', self::$platforms).'"');
         }
 
-        if ("guess" === $platform) {
-            return self::is('win') ? '\\' : '/';
-        } elseif ("windows" === $platform || 'win' === $platform) {
+        if ('windows' === $platform || 'win' === $platform) {
             return '\\';
-        } else {
-            return '/';
         }
+
+        return DIRECTORY_SEPARATOR;
     }
 
     /**
      * Returns the path with the proper slash style
      *
-     * @param string $path
-     * @param string $forcePlatformStyle=guess|win|windows|linux|mac|unix force conversion to a specific platform path style
      * Win and windows will produce the same result
      * linux, mac, unix will produce the same result
-     * @return string
+     * @param  string     $path
+     * @param  string     $forcePlatformStyle=guess|win|windows|linux|mac|unix force conversion to a specific platform path style
      * @throws \Exception If platform is unknown
+     * @return string
      */
-    public static function toPathStyle($path, $forcePlatformStyle = "guess")
+    public static function toPathStyle($path, $forcePlatformStyle = 'guess')
     {
         return str_replace('/', self::slash($forcePlatformStyle), $path);
     }
