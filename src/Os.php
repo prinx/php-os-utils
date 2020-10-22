@@ -12,21 +12,21 @@
 namespace Prinx;
 
 /**
- * Os Utilities class
+ * Os Utilities class.
  *
  * @author Prince Dorcis <princedorcis@gmail.com>
  */
 class Os
 {
     /**
-     * Platforms
+     * Platforms.
      *
      * @var array
      */
     protected static $platforms = ['guess', 'win', 'windows', 'mac', 'linux', 'unix'];
 
     /**
-     * Get the name of the OS on which the script is running
+     * Get the name of the OS on which the script is running.
      *
      * @return string
      */
@@ -40,8 +40,9 @@ class Os
      * which the script is running.
      *
      *
-     * @param  string    $name
-     * @return boolean
+     * @param string $name
+     *
+     * @return bool
      */
     public static function is($name)
     {
@@ -60,14 +61,16 @@ class Os
 
     /**
      * Return the propoer slash according to the OS.
-     * Backslash '\\' for Windows, normal slash '/' for the other OS
+     * Backslash '\\' for Windows, normal slash '/' for the other OS.
      *
      * If platform is guess, returns the appropriate slash according to the OS running the script
      * Win and windows will produce the same result
      * Linux, Mac, unix will produce the same result.
      *
-     * @param  string     $platform=guess|windows|linux|mac|unix Get the path delimiter of a specific platform
+     * @param string $platform=guess|windows|linux|mac|unix Get the path delimiter of a specific platform
+     *
      * @throws \Exception If platform is unknown
+     *
      * @return string
      */
     public static function slash($platform = 'guess')
@@ -88,15 +91,17 @@ class Os
     }
 
     /**
-     * Returns the path with the proper slash style
+     * Returns the path with the proper slash style.
      *
      * Win and windows will produce the same result
      * linux, mac, unix will produce the same result
      *
      *
-     * @param  string     $path
-     * @param  string     $forcePlatformStyle=guess|win|windows|linux|mac|unix force conversion to a specific platform path style
+     * @param string $path
+     * @param string $forcePlatformStyle=guess|win|windows|linux|mac|unix force conversion to a specific platform path style
+     *
      * @throws \Exception If platform is unknown
+     *
      * @return string
      */
     public static function toPathStyle($path, $forcePlatformStyle = 'guess')
