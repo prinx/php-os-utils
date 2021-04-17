@@ -1,0 +1,1 @@
+C:37:"PHPUnit\Runner\DefaultTestResultCache":142:{a:2:{s:7:"defects";a:0:{}s:5:"times";a:2:{s:29:"Tests\Unit\EnvTest::testSlash";d:0.015;s:41:"Tests\Unit\EnvTest::testPlatformPathStyle";d:0;}}}
