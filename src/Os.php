@@ -23,7 +23,7 @@ class Os
      *
      * @var array
      */
-    protected static $platforms = ['guess', 'win', 'windows', 'mac', 'linux', 'unix'];
+    protected static $platforms = ['guess', 'win', 'windows', 'mac', 'linux', 'unix', 'forward', 'backward'];
 
     /**
      * Get the name of the OS on which the script is running.
@@ -38,7 +38,6 @@ class Os
     /**
      * Check if the OS name passed is the same as the OS of the machine on
      * which the script is running.
-     *
      *
      * @param string $name
      *
@@ -67,8 +66,6 @@ class Os
      * Win and windows will produce the same result
      * Linux, Mac, unix will produce the same result.
      *
-     * @param string $platform=guess|windows|linux|mac|unix Get the path delimiter of a specific platform
-     *
      * @throws \Exception If platform is unknown
      *
      * @return string
@@ -96,9 +93,7 @@ class Os
      * Win and windows will produce the same result
      * linux, mac, unix will produce the same result
      *
-     *
      * @param string $path
-     * @param string $forcePlatformStyle=guess|win|windows|linux|mac|unix force conversion to a specific platform path style
      *
      * @throws \Exception If platform is unknown
      *
@@ -106,6 +101,12 @@ class Os
      */
     public static function toPathStyle($path, $forcePlatformStyle = 'guess')
     {
-        return str_replace('/', self::slash($forcePlatformStyle), $path);
+        $slash = self::slash($forcePlatformStyle);
+
+        if ($slash === '/') {
+            return str_replace('\\', $slash, $path);
+        }
+
+        return str_replace('/', $slash, $path);
     }
 }
